@@ -4,7 +4,7 @@ import gql from "graphql-tag";
 
 export default class PokemonDetail extends Component {
   render() {
-    const { id:name } = this.props.match.params;
+    const { id: name } = this.props.match.params;
     console.log(name);
 
     const FEED_QUERY = gql`
@@ -27,23 +27,27 @@ export default class PokemonDetail extends Component {
           if (loading) return <div>Fetching</div>;
           if (error) return <div>Error</div>;
 
-          //const { pokemons } = data;
-          console.log(data);
+          const { pokemon } = data;
+          console.log(pokemon);
 
-          return (
-            <div>
-              <h1>PokeList</h1>
-
+          if (!pokemon) {
+            return <h1>Oh No!</h1>;
+          } else {
+            return (
               <div>
-                <h1>Details...</h1>
-                <h3>ID: {name}</h3>
-              </div>
+                <h1>PokeList</h1>
 
-              {/* {pokemons.map((pokemon, index) => {
+                <div>
+                  <h1>Details...</h1>
+                  <h3>ID: {name}</h3>
+                </div>
+
+                {/* {pokemons.map((pokemon, index) => {
               return <PokemonCard key={pokemon.id} name={pokemon.name}/>;
             })} */}
-            </div>
-          );
+              </div>
+            );
+          }
         }}
       </Query>
     );
