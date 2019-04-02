@@ -3,36 +3,18 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 export const FEED_QUERY = gql`
-  query PokeList {
-    pokemon(name: "Pikachu") {
+query PokeList {
+    pokemons(first: 250) {
       id
       number
       name
-      attacks {
-        special {
-          name
-          type
-          damage
-        }
-      }
-      evolutions {
-        id
-        number
-        name
-        weight {
-          minimum
-          maximum
-        }
-        attacks {
-          fast {
-            name
-            type
-            damage
-          }
-        }
-      }
+      maxCP
+      maxHP
+      image
+      types
     }
   }
+
 `;
 
 export default class PokemonList extends Component {
@@ -43,7 +25,9 @@ export default class PokemonList extends Component {
           if (loading) return <div>Fetching</div>;
           if (error) return <div>Error</div>;
 
-          console.log(data);
+
+          const pokemon = data.pokemons;
+          console.log(pokemon);
 
 
           return (
