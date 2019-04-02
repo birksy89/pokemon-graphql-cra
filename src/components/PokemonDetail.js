@@ -9,7 +9,7 @@ export default class PokemonDetail extends Component {
 
     const FEED_QUERY = gql`
       query PokeDetails {
-        pokemon(name: "${name}") {
+        pokemon(name: "bulbasaur") {
           id
           number
           name
@@ -17,6 +17,9 @@ export default class PokemonDetail extends Component {
           maxHP
           image
           types
+          evolutions {
+            name
+          }
         }
       }
     `;

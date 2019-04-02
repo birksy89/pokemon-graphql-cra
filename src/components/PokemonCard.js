@@ -3,17 +3,21 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function PokemonCard(props) {
-  console.log(props);
+
+  const {pokemon} = props;
+  console.log(pokemon);
 
   return (
-    <div>
-      <Link to={`/${props.name}`}>{props.name}</Link>
+    <div className="card">
+      <Link to={`/${pokemon.name}`}>{pokemon.name}</Link>
+
+      <img alt={pokemon.name} src={pokemon.image} />
     </div>
   );
 }
 
 PokemonCard.propTypes = {
-  name: PropTypes.string.isRequired
+  pokemon: PropTypes.object.isRequired
 };
 
 export default PokemonCard;
