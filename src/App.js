@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import PokemonList from "./components/PokemonList";
+import PokemonDetail from "./components/PokemonDetail";
 
 class App extends Component {
   render() {
@@ -13,7 +14,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" component={PokemonList} />
-            <Route exact path="/detail" component={() => <p>Hello</p>} />
+            <Route exact path="/:id" component={PokemonDetail} />
           </Switch>
         </header>
       </div>
