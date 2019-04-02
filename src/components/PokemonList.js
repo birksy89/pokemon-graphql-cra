@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import PokemonCard from './PokemonCard';
 
 export const FEED_QUERY = gql`
   query PokeList {
@@ -32,7 +33,7 @@ export default class PokemonList extends Component {
               <h1>PokeList</h1>
 
               {pokemons.map((pokemon, index) => {
-                return <p key={pokemon.id}>{pokemon.name}</p>;
+                return <PokemonCard key={pokemon.id} name={pokemon.name}/>;
               })}
             </div>
           );
