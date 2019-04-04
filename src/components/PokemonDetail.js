@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import PokemonCard from './PokemonCard';
 
 export default class PokemonDetail extends Component {
   render() {
@@ -40,14 +41,8 @@ export default class PokemonDetail extends Component {
               <div>
                 <h1>PokeList</h1>
 
-                <div>
-                  <h1>Details...</h1>
-                  <h3>ID: {name}</h3>
-                </div>
+                <PokemonCard key={pokemon.id} pokemon={pokemon} />
 
-                {/* {pokemons.map((pokemon, index) => {
-              return <PokemonCard key={pokemon.id} name={pokemon.name}/>;
-            })} */}
               </div>
             );
           }

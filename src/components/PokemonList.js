@@ -29,12 +29,23 @@ export default class PokemonList extends Component {
           console.log(pokemons);
 
           return (
-            <div>
+            <div className="container">
               <h1>PokeList</h1>
 
-              {pokemons.map((pokemon, index) => {
-                return <PokemonCard key={pokemon.id} pokemon={pokemon}/>;
-              })}
+              <div className="row">
+
+
+
+                {pokemons.map((pokemon, index) => {
+                  return (
+                    <div className="col-12 col-sm-4">
+
+                      <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                    </div>
+
+                  )
+                })}
+              </div>
             </div>
           );
         }}
