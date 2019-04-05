@@ -17,12 +17,22 @@ export const FEED_QUERY = gql`
   }
 `;
 
+function FetchingState(){
+  return(
+    <div className="d-flex justify-content-center">
+  <div className="spinner-border" role="status">
+    <span className="sr-only">Loading...</span>
+  </div>
+</div>
+  )
+}
+
 export default class PokemonList extends Component {
   render() {
     return (
       <Query query={FEED_QUERY}>
         {({ loading, error, data }) => {
-          if (loading) return <div>Fetching</div>;
+          if (loading) return <FetchingState/>;
           if (error) return <div>Error</div>;
 
           const { pokemons } = data;
@@ -31,6 +41,8 @@ export default class PokemonList extends Component {
           return (
             <div className="container">
               <h1>PokeList</h1>
+
+              <FetchingState/>
 
               <div className="row">
 
