@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <header className="text-center">
           <Link to="/">
-            <img src={logo} alt="Logo" />
+            <img className="img-fluid" src={logo} alt="Logo" />
           </Link>
         </header>
 

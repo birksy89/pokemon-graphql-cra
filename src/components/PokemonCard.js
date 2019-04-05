@@ -35,10 +35,10 @@ function PokemonCard(props) {
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">ID: {pokemon.id}</li>
-        <li className="list-group-item">number: {pokemon.number}</li>
-        <li className="list-group-item">maxCP: {pokemon.maxCP}</li>
-        <li className="list-group-item">maxHP: {pokemon.maxHP}</li>
-        <li className="list-group-item">types: {pokemon.types}</li>
+        <li className="list-group-item">Number: {pokemon.number}</li>
+        <li className="list-group-item">MaxCP: {pokemon.maxCP}</li>
+        <li className="list-group-item">MaxHP: {pokemon.maxHP}</li>
+        <li className="list-group-item">Types: {pokemon.types}</li>
       </ul>
       <div className="card-body">
         <Link className="card-link" to={`/${pokemon.name}`}>

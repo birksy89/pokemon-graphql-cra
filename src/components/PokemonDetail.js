@@ -20,7 +20,13 @@ export default class PokemonDetail extends Component {
           image
           types
           evolutions {
+            id
+            number
             name
+            maxCP
+            maxHP
+            image
+            types
           }
         }
       }
@@ -39,9 +45,21 @@ export default class PokemonDetail extends Component {
             return <h1>Oh No!</h1>;
           } else {
             return (
+              <>
+                <div className="col-12 col-sm-6 col-lg-4">
+                  <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                </div>
 
-                <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                {pokemon.evolutions &&
+                  pokemon.evolutions.map((evolved, index) => {
+                    return (
+                      <div className="col-12 col-sm-6 col-lg-4">
 
+                        <PokemonCard key={evolved.id} pokemon={evolved} />
+                      </div>
+                    );
+                  })}
+              </>
             );
           }
         }}
