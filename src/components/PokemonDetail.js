@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import PokemonCard from './PokemonCard';
+import PokemonCard from "./PokemonCard";
+import Fetching from "./Fetching";
 
 export default class PokemonDetail extends Component {
   render() {
@@ -10,7 +11,7 @@ export default class PokemonDetail extends Component {
 
     const FEED_QUERY = gql`
       query PokeDetails {
-        pokemon(name: "bulbasaur") {
+        pokemon(name: "${name}") {
           id
           number
           name
@@ -28,7 +29,7 @@ export default class PokemonDetail extends Component {
     return (
       <Query query={FEED_QUERY}>
         {({ loading, error, data }) => {
-          if (loading) return <div>Fetching</div>;
+          if (loading) return <Fetching />;
           if (error) return <div>Error</div>;
 
           const { pokemon } = data;
@@ -38,12 +39,9 @@ export default class PokemonDetail extends Component {
             return <h1>Oh No!</h1>;
           } else {
             return (
-              <div>
-                <h1>PokeList</h1>
 
                 <PokemonCard key={pokemon.id} pokemon={pokemon} />
 
-              </div>
             );
           }
         }}
