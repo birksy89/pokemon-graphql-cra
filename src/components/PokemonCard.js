@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import PokemonTypeBadge from './PokemonTypeBadge'
 
 const StyledPokemonCard = styled.div`
   margin-bottom: 3rem;
@@ -42,7 +43,7 @@ function PokemonCard(props) {
         {
           pokemon.types.map(type => {
             return(
-              <span class="badge badge-pill badge-primary ml-1">{type}</span>
+              <PokemonTypeBadge key={type} typeName={type}/>
             )
           })
         }
