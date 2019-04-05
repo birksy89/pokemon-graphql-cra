@@ -38,7 +38,17 @@ function PokemonCard(props) {
         <li className="list-group-item">Number: {pokemon.number}</li>
         <li className="list-group-item">MaxCP: {pokemon.maxCP}</li>
         <li className="list-group-item">MaxHP: {pokemon.maxHP}</li>
-        <li className="list-group-item">Types: {pokemon.types}</li>
+        <li className="list-group-item">Types:
+        {
+          pokemon.types.map(type => {
+            return(
+              <span class="badge badge-pill badge-primary ml-1">{type}</span>
+            )
+          })
+        }
+        </li>
+
+
       </ul>
       <div className="card-body">
         <Link className="card-link" to={`/${pokemon.name}`}>
