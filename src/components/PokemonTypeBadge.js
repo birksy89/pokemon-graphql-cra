@@ -1,8 +1,19 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+const colorPicker = function(type) {
+  switch (type) {
+    case "Grass":
+      return "green";
+    case "Poison":
+      return "purple";
+    default:
+      return "";
+  }
+};
+
 const StyledPokemonBadge = styled.span`
-  background-color: ${props => (props.typeName === "Grass" ? "green" : "red")};
+  background-color: ${props => colorPicker(props.typeName)};
 `;
 
 export default class PokemonTypeBadge extends Component {
