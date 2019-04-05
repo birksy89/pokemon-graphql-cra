@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import PokemonCard from './PokemonCard';
+import Fetching from './Fetching';
 
 export const FEED_QUERY = gql`
   query PokeList {
@@ -17,22 +18,13 @@ export const FEED_QUERY = gql`
   }
 `;
 
-function FetchingState(){
-  return(
-    <div className="d-flex justify-content-center">
-  <div className="spinner-border" role="status">
-    <span className="sr-only">Loading...</span>
-  </div>
-</div>
-  )
-}
 
 export default class PokemonList extends Component {
   render() {
     return (
       <Query query={FEED_QUERY}>
         {({ loading, error, data }) => {
-          if (loading) return <FetchingState/>;
+          if (loading || true) return <Fetching/>;
           if (error) return <div>Error</div>;
 
           const { pokemons } = data;
@@ -42,7 +34,7 @@ export default class PokemonList extends Component {
             <div className="container">
               <h1>PokeList</h1>
 
-              <FetchingState/>
+
 
               <div className="row">
 
