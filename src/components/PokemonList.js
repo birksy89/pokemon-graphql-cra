@@ -38,7 +38,7 @@ export default class PokemonList extends Component {
 
                 {pokemons.map((pokemon, index) => {
                   return (
-                    <div className="col-12 col-sm-4">
+                    <div className="col-12 col-sm-6 col-lg-4">
 
                       <PokemonCard key={pokemon.id} pokemon={pokemon} />
                     </div>
