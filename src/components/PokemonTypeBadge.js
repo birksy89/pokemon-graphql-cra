@@ -7,6 +7,8 @@ const colorPicker = function(type) {
       return "green";
     case "Poison":
       return "purple";
+    case "Fire":
+      return "red";
     default:
       return "";
   }
