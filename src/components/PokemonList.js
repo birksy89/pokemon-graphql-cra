@@ -30,7 +30,7 @@ export default class PokemonList extends Component {
           //console.log(pokemons);
 
           return (
-            <>
+            <div className="row justify-content-center">
               {pokemons.map((pokemon, index) => {
                 return (
                   <div key={pokemon.id} className="col-12 col-sm-6 col-lg-4">
@@ -38,7 +38,7 @@ export default class PokemonList extends Component {
                   </div>
                 );
               })}
-            </>
+            </div>
           );
         }}
       </Query>

@@ -75,19 +75,37 @@ export default class PokemonDetail extends Component {
           } else {
             return (
               <>
-                <div className="col-12 col-sm-6 col-lg-4">
-                  <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                <div className="row justify-content-center">
+                  <div className="col-12">
+                    <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                  </div>
+
                 </div>
 
-                {pokemon.evolutions &&
-                  pokemon.evolutions.map((evolved, index) => {
-                    return (
-                      <div key={evolved.id} className="col-12 col-sm-6 col-lg-4">
-                        <EvolvesInto><Icon type="right" /></EvolvesInto>
-                        <PokemonCard  pokemon={evolved} />
+                {pokemon.evolutions !== null &&
+                  <>
+                  <hr className="mb-5" />
+                  <h2 className="text-center mb-5">Evolution Path</h2>
+                    <div className="row justify-content-center">
+                      <div className="col-12 col-sm-6 col-lg-4">
+                        <PokemonCard key={pokemon.id} pokemon={pokemon} />
                       </div>
-                    );
-                  })}
+
+                      {pokemon.evolutions &&
+                        pokemon.evolutions.map((evolved, index) => {
+                          return (
+                            <div key={evolved.id} className="col-12 col-sm-6 col-lg-4">
+                              <EvolvesInto><Icon type="right" /></EvolvesInto>
+                              <PokemonCard pokemon={evolved} />
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </>
+                }
+
+
+
               </>
             );
           }

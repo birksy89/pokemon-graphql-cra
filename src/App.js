@@ -17,12 +17,12 @@ class App extends Component {
         </header>
 
         <div className="container">
-          <div className="row justify-content-center">
+         
             <Switch>
               <Route exact path="/" component={PokemonList} />
               <Route exact path="/:id" component={PokemonDetail} />
             </Switch>
-          </div>
+          
         </div>
       </div>
     );
