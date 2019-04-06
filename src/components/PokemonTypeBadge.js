@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const colorPicker = function(type) {
+const colorPicker = function (type) {
   switch (type) {
     case "Grass":
       return "green";
@@ -9,6 +9,32 @@ const colorPicker = function(type) {
       return "purple";
     case "Fire":
       return "red";
+    case "Flying":
+      return "skyblue";
+    case "Water":
+      return "royalblue";
+    case "Bug":
+      return "lawngreen";
+    case "Normal":
+      return "darkgrey";
+    case "Electric":
+      return "gold";
+    case "Ground":
+      return "burlywood";
+    case "Fairy":
+      return "lightsalmon";
+    case "Fighting":
+      return "tan";
+    case "Psychic":
+      return "Purple";
+    case "Rock":
+      return "sienna";
+    case "Steel":
+      return "steelblue";
+    case "Ice":
+      return "darkturquoise";
+    case "Ghost":
+      return "violet";
     default:
       return "";
   }
