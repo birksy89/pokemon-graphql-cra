@@ -1,13 +1,42 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import { Icon } from 'antd';
 import PokemonCard from "./PokemonCard";
 import Fetching from "./Fetching";
+import styled from "styled-components";
+
+
+const EvolvesInto = styled.div`
+    position: absolute;
+    z-index:1;
+    top: 40%;
+    left: -25px;
+    color: #2a5793;
+    background-color: #f5f5f5;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: 1px solid;
+    overflow: hidden;
+
+    @media (max-width: 575px) {
+    top: -50px;
+    left: 50%;
+    transform: rotate(90deg) translateY(50%);
+  }
+`;
+
+
+
 
 export default class PokemonDetail extends Component {
   render() {
     const { id: name } = this.props.match.params;
-    console.log(name);
+    //console.log(name);
 
     const FEED_QUERY = gql`
       query PokeDetails {
@@ -39,7 +68,7 @@ export default class PokemonDetail extends Component {
           if (error) return <div>Error</div>;
 
           const { pokemon } = data;
-          console.log(pokemon);
+          //console.log(pokemon);
 
           if (!pokemon) {
             return <h1>Oh No!</h1>;
@@ -53,9 +82,9 @@ export default class PokemonDetail extends Component {
                 {pokemon.evolutions &&
                   pokemon.evolutions.map((evolved, index) => {
                     return (
-                      <div className="col-12 col-sm-6 col-lg-4">
-
-                        <PokemonCard key={evolved.id} pokemon={evolved} />
+                      <div key={evolved.id} className="col-12 col-sm-6 col-lg-4">
+                        <EvolvesInto><Icon type="right" /></EvolvesInto>
+                        <PokemonCard  pokemon={evolved} />
                       </div>
                     );
                   })}
