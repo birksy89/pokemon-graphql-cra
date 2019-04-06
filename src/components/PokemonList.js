@@ -27,14 +27,14 @@ export default class PokemonList extends Component {
           if (error) return <div>Error</div>;
 
           const { pokemons } = data;
-          console.log(pokemons);
+          //console.log(pokemons);
 
           return (
             <>
               {pokemons.map((pokemon, index) => {
                 return (
-                  <div className="col-12 col-sm-6 col-lg-4">
-                    <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                  <div key={pokemon.id} className="col-12 col-sm-6 col-lg-4">
+                    <PokemonCard  pokemon={pokemon} />
                   </div>
                 );
               })}

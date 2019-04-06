@@ -3,6 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import PokemonList from "./components/PokemonList";
 import PokemonDetail from "./components/PokemonDetail";
 import logo from "./logo.png";
+import 'antd/dist/antd.css';
 import "./App.css";
 
 class App extends Component {
