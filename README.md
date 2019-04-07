@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pokemon App - GraphQL & React
+
+[View Live Demo](https://blissful-dijkstra-83e93a.netlify.com/).
 
 ## Available Scripts
 
