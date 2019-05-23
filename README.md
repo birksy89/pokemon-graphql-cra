@@ -1,6 +1,6 @@
 # Pokemon App - GraphQL & React
 
-[View Live Demo](https://blissful-dijkstra-83e93a.netlify.com/).
+[View Live Demo](https://pokemon-graphql-cra.netlify.com/).
 
 ## Available Scripts
 
